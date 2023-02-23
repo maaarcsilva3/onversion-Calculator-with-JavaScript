@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<title> Length Converter</title>
+<body>
+
+<h2>Length Converter</h2>
+
+<label>Inches</label>
+<input id="inputInches" type="number" placeholder="Inches" oninput="convertLength()">
+
+<p>Meters: <span id="outputMeters"></span></p>
+<p>Centimeters: <span id="outputCentimeters"></span></p>
+<p>Millimeters: <span id="outputMillimeters"></span></p>
+
+<script>
+function convertLength() {
+  const inches = parseFloat(document.getElementById('inputInches').value);
+  let meters, centimeters, millimeters;
+
+  if (inches >= 0) {
+    meters = inches / 39.37; // 1 inch = 0.0254 meters
+    centimeters = meters * 100; // 1 meter = 100 centimeters
+    millimeters = centimeters * 10; // 1 centimeter = 10 millimeters
+  } else {
+    meters = "Invalid input";
+    centimeters = "Invalid input";
+    millimeters = "Invalid input";
+  }
+  
+  document.getElementById('outputMeters').innerHTML = meters.toFixed(2);
+  document.getElementById('outputCentimeters').innerHTML = centimeters.toFixed(2);
+  document.getElementById('outputMillimeters').innerHTML = millimeters.toFixed(2);
+}
+</script>
+</body>
+</html>
